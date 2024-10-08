@@ -1,6 +1,166 @@
+#options-container>div.green-border{
+    border: 3px solid #35BD3A
+}
+#options-container>div.red-border{
+    border: 3px solid #FF7A7A;
+}
+#options-container>div.red-border>div{
+    display: flex;
+    gap: 12px;
+    font-weight: 400;
+    font-size: 20px;
+
+}
+.unclickable{
+    pointer-events: none;
+    /* cursor: not-allowed; */
+
+}
+
+body#yellow-state{
+    background-color: #E4E5C7;
+}
+body#yellow-state #question-container>div{
+    background-color :#C5B100;
+    border: 2px solid #C5B1006E;
+
+}
+body#yellow-state #next-question-button{
+    color: #C58800;
+}
+body#red-state{
+    background-color: #DBADAD;
+}
+body#red-state #question-container>div{
+    background-color :#C50C00;
+    border: 2px solid #C50C006E;
+
+
+}
+body#red-state #next-question-button{
+    color: #C50000;
+}
+#options-container:has(.no-border-on-option) div{
+  border: none !important;
+}
+
+
+#next-button-and-show-result-button{
+    display: flex;
+    flex-direction: row-reverse;
+}
+#show-result-button{
+    display: none;
+}
+#show-result-button.show{
+    display: block;
+
+}
+body#show-result-section{
+    background-color: #F6F4F0;
+
+}
+#result-section{
+    display: none;
+}
+
+#result-section.hide{
+    display: none;
+}
+#volume-off-icon{
+    display: none;
+}
+#volume-off-icon.show{
+    display: block;
+}
+#volume-off-icon.hide{
+    display: none;
+}
+
+#volume-on-icon.hide{
+    display: none;
+
+}
+#volume-on-icon.show{
+    display: block;
+
+}
+.show{
+    display: block !important;
+}
+.hide{
+    display: none;
+}
+
 @media(width<=768px){
+
+
     #start-button{
         font-size: 32px;
     }
 
+}
+
+
+
+
+/* The switch container */
+.toggle-container {
+    display: flex;
+    
+    align-items: center;
+    margin-top: 50px;
+    font-size: 18px;
+    gap: 8px;
+
+    flex-direction: row-reverse;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* Hide the default checkbox */
+.switch input {
+    display: none;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+/* The slider handle */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+/* When the checkbox is checked, move the slider */
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+/* Move the slider handle to the right when checked */
+input:checked + .slider:before {
+    transform: translateX(26px);
 }
