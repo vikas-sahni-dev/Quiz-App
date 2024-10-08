@@ -3,20 +3,131 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="output.css">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic" rel="stylesheet" />
-    <!-- <script src="script.js" defer></script> -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <title>Quiz Time</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:regular,600,700,800,900"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="output.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
   </head>
   <body class="font-['Poppins']">
-<section id="quiz-start-section" class=" h-screen bg-[#F7F4F1] flex justify-center items-center px-8">
-  <div class=" flex flex-col justify-center items-center">
-    <div>
-      <img src="./images/quiz-logo.svg" alt="" />
-    </div>
-    <a href="quiz.html" id="start-button" class=" block cursor-pointer bg-[#35BD3A] font-semibold text-white rounded-lg text-[53px] max-w-md  text-center  px-6 py-2 border-r-[12px] border-b-[12px] border-[#00AA08]">Start Now >>></a>
-  </div>
-</section>
-</body>
+    <section
+      id="quiz-start-section"
+      class="h-screen bg-[#F7F4F1] flex justify-center items-center px-8"
+    >
+      <div class="flex flex-col justify-center items-center">
+        <div>
+          <img src="./images/quiz-logo.svg" alt="" />
+        </div>
+        <p
+          href="quiz.html"
+          id="quiz-start-now-button"
+          class="cursor-pointer bg-[#35BD3A] font-semibold text-white rounded-2xl text-[53px]  text-center px-6 py-2 border-r-[12px] border-b-[12px] border-[#00AA08]"
+          >Start Now >>></
+        >
+      </div>
+    </section>
+    <main class="px-[200px] py-[32px] bg-[#CCE2C2] hidden">
+
+
+
+
+
+
+      <section id="quiz-section">
+        <div class="toggle-container">
+          <p id="status">BackGround music is OFF</p>
+      
+          <label class="switch">
+              <input type="checkbox" id="toggleSwitch">
+              <span class="slider"></span>
+          </label>
+          <audio id="background-music-audio-element" src="./sounds/bg-sound.mp3">c</audio>
+      </div>
+        <div class="flex justify-between relative mb-16">
+          <img class="w-[222px]" src="./images/quiz-logo.svg" alt="" />
+      
+          <img id="volume-on-icon" class="px-2" src="./images/volume-on-icon.svg" alt="" />
+          <img id="volume-off-icon" src="./images/volume-off-icon.svg" alt="">
+          <audio src=""></audio>
+          <div
+            id="question-number-container"
+            class="bg-[#FEC33D] absolute right-0 top-20 font-semibold text-[28px] p-2 rounded-md border-2 border-[#FEC33D]"
+          >
+            <span></span>/25
+          </div>
+        </div>
+        <div
+          id="question-container"
+          class="rounded-[13px] border-4 bg-[#F5F5F5] p-8 font-semibold text-[20px] relative mb-28 w-full"
+        >
+          <p></p>
+          <div
+            id=""
+            class="font-semibold text-white text-[28px] bg-[#02A409] absolute right-0 -bottom-20 p-2 rounded-md border-2 border-[#02A4096E] h-16 w-24"
+          ></div>
+        </div>
+        <div
+          id="options-container"
+          class="bg-[#F5F5F5] rounded-[13px] p-4 flex flex-col gap-8 font-semibold text-2xl"
+        >
+          <div
+            class="border-[3px] border-[#D9D9D9] rounded-lg p-4 flex justify-between"
+          ></div>
+          <div
+            class="border-[3px] border-[#D9D9D9] rounded-lg p-4 flex justify-between"
+          ></div>
+          <div
+            class="border-[3px] border-[#D9D9D9] rounded-lg p-4 flex justify-between"
+          ></div>
+          <div
+            class="border-[3px] border-[#D9D9D9] rounded-lg p-4 flex justify-between"
+          ></div>
+        </div>
+        <div id="next-button-and-show-result-button" class="text-[#01AB08] text-end my-4 text-base font-semibold">
+          <span id="next-question-button">Next ></span> 
+          <button id="show-result-button" class="bg-[#35BD3A]  text-white font-semibold text-[20px] leading-normal py-1 px-1 rounded-lg focus:outline-none focus:ring-0 transition-transform duration-300 ease-in-out shadow-none hover:shadow-lg active:shadow-md translate-y-0 active:translate-y-0 md:w-44 md:py-3.5 md:px-5 border-r-4 border-b-4 border-[#00AA08]">
+            Show Result
+          </button>
+          
+          
+          
+        </div>
+      </section>
+      <section id="result-section">
+        <div class="h-screen max-w-screen-2xl m-auto flex flex-col justify-around" >
+          <div class="flex flex-col items-center justify-center">
+            <img class="w-56" src="./images/quiz-logo.svg" alt="">
+            <p class="font-bold text-xl relative bottom-2.5">Result</p>
+          </div>
+          <div>
+            diagram
+          </div>
+          <div class="flex flex-col items-center justify-center gap-4">
+            <p  class="font-semibold text-xl ">“Keep learning, you have a good score!”</p>
+         <button id="" class="bg-[#35BD3A] text-center text-white font-semibold text-sm leading-normal py-1 rounded-lg focus:outline-none focus:ring-0 transition-transform duration-300 ease-in-out shadow-none hover:shadow-lg active:shadow-md translate-y-0 active:translate-y-0 md:w-32 md:py-1.5  border-r-4 border-b-4 border-[#00AA08]">
+          <<< Retry
+          </button>
+          </div>
+          <div flex flex-col>
+            <p class="text-center font-semibold text-xl text-[#535353]">Share your score:</p>
+            <div class="flex justify-center gap-2">
+              <img src="./images/linkedIn-icon.svg" alt="">
+              <img src="./images/twitter -square-icon.svg" alt="">
+              <img src="./images/instagram-square-icon.svg" alt="">
+            </div>
+          </div>
+      
+        </div>
+      
+      </section>
+      
+          <!-- <div class="text-center text-[#858585] text-[10px]">
+            Made with ❤️ by Vikas Sahni
+          </div> -->
+    </main>
+  </body>
 </html>

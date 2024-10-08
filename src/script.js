@@ -246,7 +246,7 @@ toggleSwitch.addEventListener('change', function() {
 
 
 //selecting HTML elements
-const body = document.querySelector("body");
+const quizStartNowButton=document.querySelector("#quiz-start-now-button")
 let questionNumberElement = document.querySelector(
   "#question-number-container>span"
 );
@@ -261,6 +261,8 @@ const resultSection=document.querySelector("#result-section")
 const volumeOnIcon=document.querySelector("#volume-on-icon")
 const volumeOffIcon=document.querySelector("#volume-off-icon")
 const bgAudioElement=new Audio('./sounds/bg-sound.mp3');
+const body = document.querySelector("body");
+
 bgAudioElement.play()
 
 //flag varaibles
@@ -373,6 +375,14 @@ optionsElement.forEach((optionElement) => {
 });
 
 setQuestion(questions[questionNumber]); //
+
+
+
+
+
+quizStartNowButton.addEventListener("click",()=>{
+  
+})
 
 nextQuestionButton.addEventListener("click", () => {
   console.log(questionNumber);
