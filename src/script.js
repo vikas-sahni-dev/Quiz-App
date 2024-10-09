@@ -246,7 +246,10 @@ toggleSwitch.addEventListener('change', function() {
 
 
 //selecting HTML elements
+const quizStartSection=document.querySelector("#quiz-start-section")
 const quizStartNowButton=document.querySelector("#quiz-start-now-button")
+const quizSettingSection=document.querySelector("#quiz-setting-section")
+const letsStartBtnOfquizSettingSection=document.querySelector("#quiz-setting-section button")
 let questionNumberElement = document.querySelector(
   "#question-number-container>span"
 );
@@ -263,7 +266,7 @@ const volumeOffIcon=document.querySelector("#volume-off-icon")
 const bgAudioElement=new Audio('./sounds/bg-sound.mp3');
 const body = document.querySelector("body");
 
-bgAudioElement.play()
+// bgAudioElement.play()
 
 //flag varaibles
 let correctQuestionCount = 0;
@@ -380,9 +383,11 @@ let answer = "";
 
 
 
-// quizStartNowButton.addEventListener("click",()=>{
-  
-// })
+quizStartNowButton.addEventListener("click",()=>{
+  quizStartSection.classList.add("hide")
+
+})
+quizStartNowButton.click()
 
 // nextQuestionButton.addEventListener("click", () => {
 //   console.log(questionNumber);
@@ -433,7 +438,7 @@ let answer = "";
 // console.log(skippedQuestion);
 
 
-}
+// }
 
 // let i=0;
 // setInterval(()=>{

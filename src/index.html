@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <title>local:Quiz Time</title>
+    <title>not vercel:Quiz Time</title>
     <link
       href="https://fonts.googleapis.com/css?family=Poppins:regular,600,700,800,900"
       rel="stylesheet"
@@ -13,22 +13,62 @@
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
-  <body class="font-['Poppins'] bg-[#F7F4F1] ">
+  <body class="font-['Poppins'] bg-[#F6F44O] max-w-screen-2xl w-full m-auto">
     <section
       id="quiz-start-section"
-      class="h-[90vh] bg-[#F7F4F1] flex justify-center items-center px-8"
+      class="h-[80vh] flex justify-center items-center px-8"
     >
       <div class="flex flex-col justify-center items-center ">
         <div>
           <img src="./images/quiz-logo.svg" alt="" />
         </div>
         <p
-          href="quiz.html"
+          
           id="quiz-start-now-button"
           class="cursor-pointer bg-[#35BD3A] font-semibold text-white rounded-2xl text-[53px]  text-center px-6 py-2 border-r-[12px] border-b-[12px] border-[#00AA08]"
           >Start Now >>></
         >
       </div>
+    </section>
+    <section id="quiz-setting-section" class="h-[80vh] max-w-screen-2xl w-full m-auto px-4 flex justify-center items-center flex-col gap-8">
+      
+      <div class="grid grid-cols-2 gap-y-5 gap-x-4 ">
+
+
+        <label for="">Topic:</label>
+        <select name="" id="" class="border border-gray-500 rounded text-sm">
+          <option value="" selected>JavaScript</option>
+          <option value="">CSS</option>
+          <option value="">HTML</option>
+          <option value="">All Topics</option>
+        </select>
+     
+          <label for="">Number of Question:</label>
+          <select name="" id=""  class="border border-gray-500 text-sm">
+            <option value="">5</option>
+            <option value="">10</option>
+            <option value="" selected>15</option>
+            <option value="">20</option>
+            <option value="">25</option>
+          </select>
+      
+        
+          <label for="">Difficulty Level:</label>
+          <select name="" id="" class="border border-gray-500 rounded text-sm">
+            <option value="">Easy</option>
+            <option value="" selected>Medium</option>
+            <option value="">Hard</option>
+            <option value="">Mixed Difficulty</option>
+          </select>
+      
+
+         
+          
+      </div>
+      <button class="bg-white border border-gray-300 rounded-lg shadow-sm text-black cursor-pointer inline-block font-sans text-sm leading-7 px-3 py-0.5 w-[100px] text-center hover:bg-gray-50 focus:border-teal-600 focus:outline-none focus:ring-0">
+        Let's Start
+      </button>
+
     </section>
     <main class="px-[200px] py-[32px] bg-[#CCE2C2] hidden">
 

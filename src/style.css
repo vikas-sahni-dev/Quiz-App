@@ -100,6 +100,16 @@ body#show-result-section {
     
   
   }
+  #quiz-setting-section >div{
+    grid-template-columns: repeat(1,1fr);
+    /* column-gap: 0px; */
+    row-gap: 8px;
+  }
+  #quiz-setting-section select{
+    margin-bottom: 1rem;
+    
+  }
+
 }
 
 @media (width<=400px) {
