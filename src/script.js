@@ -273,164 +273,164 @@ let intervalId = "";
 let isQuestionAttempted = false; //should i give it false or ""
 let answer = "";
 
-const questionTimer = (
-  questionStartTime,
-  intervalId,
-  totalTimeForAQuestion
-) => {
-  const currentTime = new Date().getTime();
-  // console.log("currenttime",currentTime);
+// const questionTimer = (
+//   questionStartTime,
+//   intervalId,
+//   totalTimeForAQuestion
+// ) => {
+//   const currentTime = new Date().getTime();
+//   // console.log("currenttime",currentTime);
 
-  const fiftyPercentOfTotalTimeForAQuestion =
-    (50 / 100) * totalTimeForAQuestion;
-  const fifteenPercentOfTotalTimeForAQuestion =
-    (15 / 100) * totalTimeForAQuestion;
-  let time = parseInt((currentTime - questionStartTime) / 1000);
-  // console.log(time);
+//   const fiftyPercentOfTotalTimeForAQuestion =
+//     (50 / 100) * totalTimeForAQuestion;
+//   const fifteenPercentOfTotalTimeForAQuestion =
+//     (15 / 100) * totalTimeForAQuestion;
+//   let time = parseInt((currentTime - questionStartTime) / 1000);
+//   // console.log(time);
 
-  if (
-    time >= fiftyPercentOfTotalTimeForAQuestion &&
-    time < totalTimeForAQuestion - fifteenPercentOfTotalTimeForAQuestion
-  ) {
-    body.id = "yellow-state";
-  } else if (
-    time >=
-    totalTimeForAQuestion - fifteenPercentOfTotalTimeForAQuestion
-  ) {
-    body.id = "red-state";
-  }
-  //   console.log(currentTime - questionStartTime);
-  questionTimerElement.innerText = `00:${totalTimeForAQuestion - time}`;
-  if (time === totalTimeForAQuestion) {
-    if (questionNumber === 24) {
-      showResultButton.classList.add("show");
-      //  showResultButton.click()
-    }
-    clearInterval(intervalId);
-    console.log("mai nahi raha");
-  }
-};
-const optionCorrectState = (option) => {
-  isQuestionAttempted = true;
-  clearInterval(intervalId);
-  option.classList.add("green-border");
-  option.innerHTML += `<img src="./images/correct.svg" alt="">`;
-  optionsContainer.classList.add("unclickable");
-};
-const setQuestion = ({
-  questionNumber,
-  question,
-  options,
-  answer: ans,
-  difficulty,
-}) => {
-  const questionStartTime = new Date().getTime();
-  let timeForQuestion;
-  if (difficulty === "easy") {
-    timeForQuestion = 30;
-  } else if (difficulty === "medium") {
-    timeForQuestion = 40;
-  } else {
-    timeForQuestion = 50;
-  }
-  console.log("timeForQuestiont", timeForQuestion);
-  isQuestionAttempted = false; //l.l.
-  answer = ans;
-  console.log("questionStartTime", questionStartTime);
-  intervalId = setInterval(() => {
-    questionTimer(questionStartTime, intervalId, timeForQuestion=15);
-  }, 50);
-  console.log("intervalId", intervalId);
-  questionNumberElement.textContent = questionNumber;
-  questionElement.innerText = question;
-  optionsElement.forEach((optionElement, index) => {
-    optionElement.innerText = options[index];
-  });
-};
+//   if (
+//     time >= fiftyPercentOfTotalTimeForAQuestion &&
+//     time < totalTimeForAQuestion - fifteenPercentOfTotalTimeForAQuestion
+//   ) {
+//     body.id = "yellow-state";
+//   } else if (
+//     time >=
+//     totalTimeForAQuestion - fifteenPercentOfTotalTimeForAQuestion
+//   ) {
+//     body.id = "red-state";
+//   }
+//   //   console.log(currentTime - questionStartTime);
+//   questionTimerElement.innerText = `00:${totalTimeForAQuestion - time}`;
+//   if (time === totalTimeForAQuestion) {
+//     if (questionNumber === 24) {
+//       showResultButton.classList.add("show");
+//       //  showResultButton.click()
+//     }
+//     clearInterval(intervalId);
+//     console.log("mai nahi raha");
+//   }
+// };
+// const optionCorrectState = (option) => {
+//   isQuestionAttempted = true;
+//   clearInterval(intervalId);
+//   option.classList.add("green-border");
+//   option.innerHTML += `<img src="./images/correct.svg" alt="">`;
+//   optionsContainer.classList.add("unclickable");
+// };
+// const setQuestion = ({
+//   questionNumber,
+//   question,
+//   options,
+//   answer: ans,
+//   difficulty,
+// }) => {
+//   const questionStartTime = new Date().getTime();
+//   let timeForQuestion;
+//   if (difficulty === "easy") {
+//     timeForQuestion = 30;
+//   } else if (difficulty === "medium") {
+//     timeForQuestion = 40;
+//   } else {
+//     timeForQuestion = 50;
+//   }
+//   console.log("timeForQuestiont", timeForQuestion);
+//   isQuestionAttempted = false; //l.l.
+//   answer = ans;
+//   console.log("questionStartTime", questionStartTime);
+//   intervalId = setInterval(() => {
+//     questionTimer(questionStartTime, intervalId, timeForQuestion=15);
+//   }, 50);
+//   console.log("intervalId", intervalId);
+//   questionNumberElement.textContent = questionNumber;
+//   questionElement.innerText = question;
+//   optionsElement.forEach((optionElement, index) => {
+//     optionElement.innerText = options[index];
+//   });
+// };
 
-optionsElement.forEach((optionElement) => {
-  optionElement.addEventListener("click", () => {
-    if (optionElement.innerText === answer) {
-      optionCorrectState(optionElement);
-      ++correctQuestionCount;
-      const sound = new Audio('./sounds/correct-bell.wav');
-      console.log(sound);
-      sound.play()
+// optionsElement.forEach((optionElement) => {
+//   optionElement.addEventListener("click", () => {
+//     if (optionElement.innerText === answer) {
+//       optionCorrectState(optionElement);
+//       ++correctQuestionCount;
+//       const sound = new Audio('./sounds/correct-bell.wav');
+//       console.log(sound);
+//       sound.play()
       
-    } else {
-      ++wrongQuestionCount
-      const sound = new Audio('./sounds/question-wrong-sound.mp3');
-      console.log(sound);
-      sound.play()
-      optionElement.classList.add("red-border");
-      optionElement.innerHTML += `<div><span>You&nbsp;Chose</span> <img src="./images/wrong.svg" alt=""></div>`;
-      for (const optionElement of optionsElement) {
-        if (optionElement.innerText === answer) {
-          optionCorrectState(optionElement);
-          return;
-        }
-      }
-    }
-  });
-});
+//     } else {
+//       ++wrongQuestionCount
+//       const sound = new Audio('./sounds/question-wrong-sound.mp3');
+//       console.log(sound);
+//       sound.play()
+//       optionElement.classList.add("red-border");
+//       optionElement.innerHTML += `<div><span>You&nbsp;Chose</span> <img src="./images/wrong.svg" alt=""></div>`;
+//       for (const optionElement of optionsElement) {
+//         if (optionElement.innerText === answer) {
+//           optionCorrectState(optionElement);
+//           return;
+//         }
+//       }
+//     }
+//   });
+// });
 
-setQuestion(questions[questionNumber]); //
-
-
+// setQuestion(questions[questionNumber]); //
 
 
 
-quizStartNowButton.addEventListener("click",()=>{
+
+
+// quizStartNowButton.addEventListener("click",()=>{
   
-})
+// })
 
-nextQuestionButton.addEventListener("click", () => {
-  console.log(questionNumber);
+// nextQuestionButton.addEventListener("click", () => {
+//   console.log(questionNumber);
 
-  ++questionNumber;
-  console.log(questionNumber);
+//   ++questionNumber;
+//   console.log(questionNumber);
 
-  if (questionNumber === 24) {
-    nextQuestionButton.classList.add("hide");
+//   if (questionNumber === 24) {
+//     nextQuestionButton.classList.add("hide");
 
-  } else if (questionNumber > 24) {
-    return;
-  }
+//   } else if (questionNumber > 24) {
+//     return;
+//   }
 
-  body.setAttribute("id", "");
-  optionsContainer.classList.remove("unclickable");
-  optionsElement.forEach((optionElement) => {
-    optionElement.classList.remove("red-border");
-    optionElement.classList.remove("green-border");
-  });
-  clearInterval(intervalId);
-  setQuestion(questions[questionNumber]);
-  console.log(questionNumber);
-});
-
-
-volumeOnIcon.addEventListener("click",()=>{
-  volumeOnIcon.classList.add("hide")
-  volumeOffIcon.classList.add("show")
-})
-volumeOffIcon.addEventListener("click",()=>{
-  volumeOffIcon.classList.remove("show")
-  volumeOnIcon.classList.remove("hide")
-})
-showResultButton.addEventListener("click",()=>{
-quizSection.classList.add("hide")
-resultSection.classList.add("show")
-body.id="show-result-section"
-showResult()  
-})
+//   body.setAttribute("id", "");
+//   optionsContainer.classList.remove("unclickable");
+//   optionsElement.forEach((optionElement) => {
+//     optionElement.classList.remove("red-border");
+//     optionElement.classList.remove("green-border");
+//   });
+//   clearInterval(intervalId);
+//   setQuestion(questions[questionNumber]);
+//   console.log(questionNumber);
+// });
 
 
+// volumeOnIcon.addEventListener("click",()=>{
+//   volumeOnIcon.classList.add("hide")
+//   volumeOffIcon.classList.add("show")
+// })
+// volumeOffIcon.addEventListener("click",()=>{
+//   volumeOffIcon.classList.remove("show")
+//   volumeOnIcon.classList.remove("hide")
+// })
+// showResultButton.addEventListener("click",()=>{
+// quizSection.classList.add("hide")
+// resultSection.classList.add("show")
+// body.id="show-result-section"
+// showResult()  
+// })
 
 
-//result section javascript
-const showResult= () => {
-  const skippedQuestion=(25-correctQuestionCount-wrongQuestionCount)
-console.log(skippedQuestion);
+
+
+// //result section javascript
+// const showResult= () => {
+//   const skippedQuestion=(25-correctQuestionCount-wrongQuestionCount)
+// console.log(skippedQuestion);
 
 
 }
