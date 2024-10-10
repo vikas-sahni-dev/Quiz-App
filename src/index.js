@@ -2688,7 +2688,6 @@ quizStartNowButton.addEventListener("click", () => {
   quizSettingSection.classList.remove("hidden");
 });
 
-quizStartNowButton.click();
 letsStartBtnOfquizSettingSection.addEventListener("click", () => {
   const topic = document.querySelector("#topic").value;
   const numberOfQuestion = document.querySelector("#question").value;
