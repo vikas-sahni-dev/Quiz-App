@@ -11,7 +11,8 @@
     />
     <link rel="stylesheet" href="output.css" />
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
+    <!-- <script src="script.js" defer></script> -->
+    <script src="index.js" defer></script>
   </head>
   <body class="font-['Poppins'] bg-[#F6F44O] max-w-screen-2xl w-full m-auto">
     <section
@@ -30,37 +31,35 @@
         >
       </div>
     </section>
-    <section id="quiz-setting-section" class="h-[80vh] max-w-screen-2xl w-full m-auto px-4 flex justify-center items-center flex-col gap-8">
+    <section id="quiz-setting-section" class="h-[80vh] max-w-screen-2xl w-full m-auto px-4 flex justify-center items-center flex-col gap-8 hidden">
       
       <div class="grid grid-cols-2 gap-y-5 gap-x-4 ">
 
-
-        <label for="">Topic:</label>
-        <select name="" id="" class="border border-gray-500 rounded text-sm">
-          <option value="" selected>JavaScript</option>
-          <option value="">CSS</option>
-          <option value="">HTML</option>
-          <option value="">All Topics</option>
+        <label for="topic">Topic:</label>
+        <select name="topic" id="topic" class="border border-gray-500 rounded text-sm">
+          <option value="JavaScript" selected>JavaScript</option>
+          <option value="CSS">CSS</option>
+          <option value="HTML">HTML</option>
+          <option value="all-topics">All Topics</option>
         </select>
-     
-          <label for="">Number of Question:</label>
-          <select name="" id=""  class="border border-gray-500 text-sm">
-            <option value="">5</option>
-            <option value="">10</option>
-            <option value="" selected>15</option>
-            <option value="">20</option>
-            <option value="">25</option>
-          </select>
-      
         
-          <label for="">Difficulty Level:</label>
-          <select name="" id="" class="border border-gray-500 rounded text-sm">
-            <option value="">Easy</option>
-            <option value="" selected>Medium</option>
-            <option value="">Hard</option>
-            <option value="">Mixed Difficulty</option>
-          </select>
-      
+        <label for="question">Number of Questions:</label>
+        <select name="question" id="question" class="border border-gray-500 text-sm">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15" selected>15</option>
+          <option value="20">20</option>
+          <option value="25">25</option>
+        </select>
+        
+        <label for="level">Difficulty Level:</label>
+        <select name="level" id="level" class="border border-gray-500 rounded text-sm">
+          <option value="easy">Easy</option>
+          <option value="medium" selected>Medium</option>
+          <option value="hard">Hard</option>
+          <option value="mixed-difficulty">Mixed Difficulty</option>
+        </select>
+        
 
          
           
@@ -70,13 +69,7 @@
       </button>
 
     </section>
-    <main class="px-[200px] py-[32px] bg-[#CCE2C2] hidden">
-
-
-
-
-
-
+    <main class="px-52 py-9 bg-[#CCE2C2] hidden">
       <section id="quiz-section">
         <div class="toggle-container">
           <p id="status">BackGround music is OFF</p>
@@ -88,16 +81,16 @@
           <audio id="background-music-audio-element" src="./sounds/bg-sound.mp3">c</audio>
       </div>
         <div class="flex justify-between relative mb-16">
-          <img class="w-[222px]" src="./images/quiz-logo.svg" alt="" />
+          <img class="w-56" src="./images/quiz-logo.svg" alt="logo" />
       
-          <img id="volume-on-icon" class="px-2" src="./images/volume-on-icon.svg" alt="" />
-          <img id="volume-off-icon" src="./images/volume-off-icon.svg" alt="">
-          <audio src=""></audio>
+          <img id="volume-on-icon" class="px-2 cursor-pointer" src="./images/volume-on-icon.svg" alt="volume-on" />
+          <img id="volume-off-icon" class="px-2 cursor-pointer hidden" src="./images/volume-off-icon.svg" alt="volume-off">
+          <!-- <audio src=""></audio> -->
           <div
             id="question-number-container"
             class="bg-[#FEC33D] absolute right-0 top-20 font-semibold text-[28px] p-2 rounded-md border-2 border-[#FEC33D]"
           >
-            <span></span>/25
+            <span></span>
           </div>
         </div>
         <div
@@ -127,7 +120,7 @@
             class="border-[3px] border-[#D9D9D9] rounded-lg p-4 flex justify-between"
           ></div>
         </div>
-        <div id="next-button-and-show-result-button" class="text-[#01AB08] text-end my-4 text-base font-semibold">
+        <div id="next-button-and-show-result-button-container" class="text-[#01AB08] text-end my-4 text-base font-semibold">
           <span id="next-question-button">Next ></span> 
           <button id="show-result-button" class="bg-[#35BD3A]  text-white font-semibold text-[20px] leading-normal py-1 px-1 rounded-lg focus:outline-none focus:ring-0 transition-transform duration-300 ease-in-out shadow-none hover:shadow-lg active:shadow-md translate-y-0 active:translate-y-0 md:w-44 md:py-3.5 md:px-5 border-r-4 border-b-4 border-[#00AA08]">
             Show Result
@@ -165,9 +158,9 @@
       
       </section>
       
-          <!-- <div class="text-center text-[#858585] text-[10px]">
+          <div class="text-center text-[#858585] text-[10px]">
             Made with ❤️ by Vikas Sahni
-          </div> -->
+          </div>
     </main>
   </body>
 </html>

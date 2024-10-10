@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="flex items-center justify-center h-screen">
+        <div id="toggle-container" class="relative group">
+          <!-- Toggle Button (On by default) -->
+          <button id="toggle-btn" class="bg-green-500 w-12 h-6 rounded-full p-1 flex items-center transition-colors duration-300">
+            <div id="toggle-circle" class="bg-white w-4 h-4 rounded-full transform translate-x-6 transition-transform duration-300"></div>
+          </button>
+          
+          <!-- Hover Text -->
+          <span id="hover-text"
+                class="absolute top-8 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-gray-800 text-white text-sm rounded opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            BG Music is On
+          </span>
+        </div>
+      </div>
+      <script >
+        const toggleBtn = document.getElementById('toggle-btn');
+const toggleCircle = document.getElementById('toggle-circle');
+const hoverText = document.getElementById('hover-text');
+let isMusicOn = true; // Default is On
+
+toggleBtn.addEventListener('click', () => {
+  isMusicOn = !isMusicOn;
+
+  // Toggle the circle position and button background color
+  toggleCircle.classList.toggle('translate-x-6'); // Change circle position
+  toggleBtn.classList.toggle('bg-green-500'); // For "On" state
+  toggleBtn.classList.toggle('bg-gray-300'); // For "Off" state
+
+  // Update hover text based on the toggle state
+  hoverText.textContent = isMusicOn ? 'BG Music is On' : 'BG Music is Off';
+});
+
+      </script>
+      
+</body>
+</html>
